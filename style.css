@@ -879,6 +879,20 @@ form button {
 	}
 }
 
+.modal-fade {
+	animation-name: modalFade;
+	animation-duration: 0.5s;
+}
+
+@keyframes modalFade {
+	from {
+		transform: translateY(-100px);
+	}
+	to {
+		transform: translateY(0);
+	}
+}
+
 /* Loader */
 .loader__wrapper {
 	position: fixed;
