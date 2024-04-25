@@ -1,4 +1,6 @@
 window.addEventListener("DOMContentLoaded", () => {
+
+  // Tabs
   const tabs = document.querySelectorAll(".tabheader__item")
   const tabParents = document.querySelector(".tabheader__items")
   const tabContents = document.querySelectorAll(".tab_content")
@@ -33,4 +35,11 @@ window.addEventListener("DOMContentLoaded", () => {
       })
     }
   })
+
+  // Loader
+  const loaderWrapper = document.querySelector(".loader__wrapper")
+
+  setTimeout(() => {
+    loaderWrapper.style.display = "none"
+  }, 2000)
 })
