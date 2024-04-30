@@ -49,7 +49,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     function getTimeRemaining(endtime) {
       let days, hours, minutes, seconds
-      time = Date.parse(endtime) - Date.parse(new Date())
+      let time = Date.parse(endtime) - Date.parse(new Date())
 
       if (time <= 0) {
         days = 0,
