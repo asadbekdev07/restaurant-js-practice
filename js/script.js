@@ -177,37 +177,17 @@ window.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    const offers = [
-      {
-        src: "./img/offer1.png",
-        alt: "Quattro Pasta",
-        title: "Quattro Pasta",
-        descr: "Pasta is a type of food made from a mixture of flour, eggs, and water.",
-        discount: 55,
-        sale: 20
-      },
-      {
-        src: "./img/offer2.png",
-        alt: "Vegertarian Pasta",
-        title: "Vegertarian Pasta",
-        descr: "Delicious pasta for vegertarian people.",
-        discount: 45,
-        sale: 18
-      },
-      {
-        src: "./img/offer3.png",
-        alt: "Gluten-Free Pasta",
-        title: "Gluten-Free Pasta",
-        descr: "Delicious and healthy pasta made of corn, rice, and even potato flour.",
-        discount: 50,
-        sale: 20
-      },
-    ]
+    fetch("http://localhost:3000/offers", {
+      method: "GET",
+      headers: {"Content-Type": "application/json"}
+    }).then(response => response.json())
+      .then(data => {
+        data.forEach(offer => {
+          const {src, alt, title, descr, discount, sale} = offer
+          new OfferMenu(src, alt, title, descr, discount, sale, "#offers .offers-items").render()
+        })
+      })
 
-    offers.forEach(offer => {
-      const {src, alt, title, descr, discount, sale} = offer
-      new OfferMenu(src, alt, title, descr, discount, sale, "#offers .offers-items").render()
-    })
 
     const dayTimeItems = [
       {
